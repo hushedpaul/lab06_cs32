@@ -44,4 +44,6 @@ int main (){
    assertEquals("art", hashtable.makeValidWord("'aRT-*"),"blah", 1);
    assertEquals("s", hashtable.makeValidWord("$-s'-#"), "blah2", 1);
    assertEquals("", hashtable.makeValidWord("$$*-'-!"), "blah2", 1);
+
+  
 }

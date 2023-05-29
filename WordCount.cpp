@@ -168,7 +168,7 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
                 cutoff = i;
             }
         }
-            allWords.erase(allWords.begin() + cutoff);
+            allWords.erase(allWords.begin(), allWords.begin() + cutoff);
             out << greatest.first << "," << greatest.second << "\n";
 
         
@@ -197,7 +197,7 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
                      }
                  }
              }
-             allWords.erase(allWords.begin() + cutoff);
+             allWords.erase(allWords.begin(), allWords.begin() + cutoff);
             out << sortOccurence.first << "," << sortOccurence.second << "\n";
          }
 
@@ -205,7 +205,7 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
 
 void WordCount::addAllWords(std::string text) {
     size_t inc = 0;
-	for(size_t i = 0; i <text.size(); i++){
+	for(size_t i = 0; i < text.size(); i++){
         if(text[i] == ' '){
             std::string entry = makeValidWord(text.substr(inc, i - inc));
             incrWordCount(entry);
