@@ -159,7 +159,6 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
             allWords.push_back(table[i][j]);
             }
         }
-    if(allWords.empty() != false){
         while(allWords.empty() == false){
         std::pair<std::string,int> greatest = allWords[0];
         size_t cutoff = 0;
@@ -169,12 +168,12 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
                 cutoff = i;
             }
         }
-            allWords.erase(allWords.begin(), allWords.begin() + cutoff);
+            allWords.erase(allWords.begin() + cutoff);
             out << greatest.first << "," << greatest.second << "\n";
 
         
         }
-    }
+    
 	
 }
 
@@ -185,25 +184,24 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
                 words.push_back(table[i][j]);
              }
          }
-         if(words.empty() == false){
          while(words.empty() == false){
              std::pair<std::string,int> sortOccurence = words[0];
-             size_t cutoff = 0;
+             size_t cut = 0;
              for(size_t i = 0; i < words.size(); i++){
                  if(words[i].second < sortOccurence.second){
                     sortOccurence = words[i];
-                    cutoff = i;
+                    cut = i;
                  }else if(words[i].second == sortOccurence.second){
                      if(words[i].first == sortOccurence.first){
                          sortOccurence = words[i];
-                         cutoff = i;
+                         cut = i;
                      }
                  }
              }
-             words.erase(words.begin(), words.begin() + cutoff);
+             words.erase(words.begin() + cut);
             out << sortOccurence.first << "," << sortOccurence.second << "\n";
          }
-         }
+         
 
 }
 
