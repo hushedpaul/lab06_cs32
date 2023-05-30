@@ -209,12 +209,13 @@ void WordCount::addAllWords(std::string text) {
     size_t inc = 0;
 	for(size_t i = 0; i < text.size(); i++){
         if(text[i] == ' '|| text[i] == '\n' || text[i] == '\t'){
-            std::string entry = makeValidWord(text.substr(inc, i - inc)); //makes valid word from beginning of word and end of word where i is the space in front of the word
-            incrWordCount(entry);
+           std::string entry = makeValidWord(text.substr(inc, i - inc)); //makes valid word from beginning of word and end of word where i is the space in front of the word
+            incrWordCount(entry);  
             inc += i + 1; //skips to next word
-        }else if(i == text.size() -1){
+        }else if(i == text.size()){
             std::string entry2 = makeValidWord(text.substr(inc, (i+1) - inc)); //if we reach the end of the line, take the last word. Helps because the last word would not be separated by the space.
-            incrWordCount(entry2);
+             incrWordCount(entry2);
+           
         }
     }
 }
