@@ -188,7 +188,7 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
              std::pair<std::string,int> sortOccurence = words[0];
              size_t cut = 0;
              for(size_t i = 0; i < words.size(); i++){
-                 if(words[i].second < sortOccurence.second){
+                 if(words[i].second > sortOccurence.second){
                     sortOccurence = words[i];
                     cut = i;
                  }else if(words[i].second == sortOccurence.second){
